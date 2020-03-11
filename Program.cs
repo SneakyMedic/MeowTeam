@@ -17,7 +17,8 @@ namespace MeowTeam
         {
             if (!(Directory.Exists(configDir))) { IO.DirectoryCreate(configDir); }
             if (!(Directory.Exists(noteDir))) { IO.DirectoryCreate(noteDir); }
-            if (!(File.Exists(configFile))) { IO.Write(url,configFile,configDir,false,true); }
+            if (!(File.Exists(configDir+"/"+configFile))) { IO.Write(url,configFile,configDir,false,true); }
+            url = IO.ReadLine(configFile,1,configDir);
             CreateHostBuilder(args).Build().Run();
         }
 
